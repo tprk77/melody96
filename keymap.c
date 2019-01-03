@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|
    * | Up   |      |      |  ]   |  =   | F12  |
    * |------| Shift|      |------+------+------|
-   * | Right|      | Enter|      | Bspc | Ins  |
+   * | Right|      | Enter|      | Bspc | Pscr |
    * |------+------|      |  /   |------+------|
-   * | Bee's| Shift|      |      | Bspc | Pscr |
+   * | Bee's| Shift|      |      | Bspc | Del  |
    * |------+------+------+------+------+------|
    * |  0   |  1   |  4   |  7   | Num  | Calc |
    * |------+------+------+------+------+------|
@@ -90,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LEFT, KC_DOT,  KC_SCLN, KC_P,    KC_0,    KC_F10,
       KC_DOWN, KC_SLSH, KC_QUOT, KC_LBRC, KC_MINS, KC_F11,
       KC_UP,   KC_RSFT, KC_ENT,  KC_RBRC, KC_EQL,  KC_F12,
-      KC_RGHT,                   KC_BSLS, KC_BSPC, KC_INS,
-      MC_BEES, KC_RSFT,                   KC_BSPC, KC_PSCR,
+      KC_RGHT,                   KC_BSLS, KC_BSPC, KC_PSCR,
+      MC_BEES, KC_RSFT,                   KC_BSPC, KC_DEL,
       KC_P0,   KC_P1,   KC_P4,   KC_P7,   KC_NLCK, KC_CALC,
       KC_P0,   KC_P2,   KC_P5,   KC_P8,   KC_PSLS, KC_MUTE,
       KC_PDOT, KC_P3,   KC_P6,   KC_P9,   KC_PAST, KC_VOLD,
