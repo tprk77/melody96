@@ -21,6 +21,7 @@ enum tprk77_fns {
 enum tprk77_mod_keys {
   MD_HYPR = ALL_T(KC_NO),
   MD_MEH  = MEH_T(KC_NO),
+  MD_CADL = LCTL(LALT(KC_DEL)),
 };
 
 #define SR SAFE_RANGE
@@ -37,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * QWERTY (BASE) LAYER:
    *
    * ,-----------------------------------------.
-   * | Ctrl | Shift| Caps | Tab  |  `   | Esc  |
+   * | Ctrl | Shift| Nav  | Tab  |  `   | Esc  |
    * |------+------+------+------+------+------|
    * | GUI  | Shift|  A   |  Q   |  1   | F1   |
    * |------+------+------+------+------+------|
@@ -77,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-----------------------------------------'
    */
   [LR_QWTY] = KEYMAP(
-      KC_LCTL, KC_LSFT, KC_CAPS, KC_TAB,  KC_GRV,  KC_ESC,
+      KC_LCTL, KC_LSFT, MO_NAV,  KC_TAB,  KC_GRV,  KC_ESC,
       KC_LGUI, KC_LSFT, KC_A,    KC_Q,    KC_1,    KC_F1,
       KC_LALT, KC_Z,    KC_S,    KC_W,    KC_2,    KC_F2,
                KC_X,    KC_D,    KC_E,    KC_3,    KC_F3,
@@ -96,6 +97,71 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_P0,   KC_P2,   KC_P5,   KC_P8,   KC_PSLS, KC_MUTE,
       KC_PDOT, KC_P3,   KC_P6,   KC_P9,   KC_PAST, KC_VOLD,
       KC_PENT, KC_PENT, KC_PPLS, KC_PPLS, KC_PMNS, KC_VOLU
+  ),
+
+  /*
+   * NAV LAYER:
+   *
+   * ,-----------------------------------------.
+   * | Ctrl | Shift| Nav  | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | GUI  | Shift| XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | Alt  | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * |      | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |      |------+------+------+------+------|
+   * |      | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |      |------+------+------+------+------|
+   * |      | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |      |------+------+------+------+------|
+   * | Ctrl | XXXX | XXXX | PgDn | PgUp | XXXX |
+   * |      |------+------+------+------+------|
+   * |      | XXXX | XXXX | Left | Home | XXXX |
+   * |      |------+------+------+------+------|
+   * |      | XXXX | XXXX | Down | Up   | XXXX |
+   * |      |------+------+------+------+------|
+   * |      | XXXX | XXXX | Right| End  | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX |      |      | XXXX | XXXX | XXXX |
+   * |------| Shift|      |------+------+------|
+   * | XXXX |      | XXXX |      | XXXX | XXXX |
+   * |------+------|      | XXXX |------+------|
+   * | Pi   | Shift|      |      | XXXX |C-A-Dl|
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * |------+------+------+------+------+------|
+   * | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |
+   * `-----------------------------------------'
+   */
+  [LR_NAV] = KEYMAP(
+      KC_LCTL, KC_LSFT, MO_NAV,  XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LGUI, KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LCTL, XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
+               XXXXXXX, KC_LEFT, KC_HOME, XXXXXXX, XXXXXXX,
+               XXXXXXX, KC_DOWN, KC_UP,   XXXXXXX, XXXXXXX,
+               XXXXXXX, KC_RGHT, KC_END,  XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_RSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX,
+      MC_PI,   KC_RSFT,                   XXXXXXX, MD_CADL,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
 };
 
